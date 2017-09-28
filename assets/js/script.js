@@ -1,6 +1,6 @@
 
 $('li').click(function(){
-  var code = 'EQUANUM';
+  var code = decrypt('EQUANUM', 13);
   var number = $(this).text();
    $('span.results').show();
   $('#wrong').hide();
@@ -39,3 +39,21 @@ $('#anotherHint').click(function(){
    $('#hint').show();
   $('#anotherHint').hide();
 });
+
+
+const ASCII_MIN = 65;
+
+function decrypt(str,nb){
+  var res ="";
+  for (var i = str.length - 1; i >= 0; i--) {
+    var asc = str.charCodeAt(i);
+    asc = asc + 13 - ASCII_MIN;
+    console.log("ASC : "+asc);
+
+
+    var letter = asc%26 + ASCII_MIN
+    console.log("CONV : " + letter)
+    res += String.fromCharCode(letter);
+  }
+  return res;
+}
