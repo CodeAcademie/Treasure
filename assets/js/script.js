@@ -18,7 +18,7 @@ $('li').click(function(){
      $('span.results').hide();
      $('#right').show();
     $('#hint,#anotherhint').hide();
-    $('.treasure').fadeIn(2000);
+    $('.treasure').fadeIn(0000);
     }
  if (enteredLength == 7 && entered !== code)
   {
@@ -29,7 +29,7 @@ $('li').click(function(){
 });
 
 $('#hint').click(function(){
-  alert('I\'\ll take "Things You Find in a Safe" for 400, Alex.');
+  alert('Vous le possedez');
   $('#hint').hide();
   $('#anotherHint').show();
 });
