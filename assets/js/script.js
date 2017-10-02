@@ -1,13 +1,13 @@
 
 $('li').click(function(){
-  var code = decrypt('EQUANUM', 13);
+  var code = decrypt('ZHANHDR',13);
   var number = $(this).text();
    $('span.results').show();
   $('#wrong').hide();
   $('#entered').append(number);
   var enteredLength = $('#entered').text().length;
   var entered = $('#entered').text();
-  if (enteredLength == 7 && entered === code) {
+  if (enteredLength == 7 && entered == code) {
      $('#entered').empty();
      $('.keypad').delay( 400 ).fadeOut(0);
       $('.front').addClass('open').animate({  borderSpacing: -180 }, {
@@ -18,9 +18,9 @@ $('li').click(function(){
      $('span.results').hide();
      $('#right').show();
     $('#hint,#anotherhint').hide();
-    $('.treasure').fadeIn(0000);
+    $('.treasure').fadeIn(1000);
     }
- if (enteredLength == 7 && entered !== code)
+ if (enteredLength == 7 && entered != code)
   {
   $('#wrong').show();
     $('span.results').hide();
@@ -35,7 +35,7 @@ $('#hint').click(function(){
 });
 
 $('#anotherHint').click(function(){
-  alert('Ask your phone.');
+  alert('Bzzzzzz...');
    $('#hint').show();
   $('#anotherHint').hide();
 });
@@ -43,16 +43,11 @@ $('#anotherHint').click(function(){
 
 const ASCII_MIN = 65;
 
-function decrypt(str,nb){
-  var res ="";
+function decrypt(str, nb){
+  let res ="";
   for (var i = str.length - 1; i >= 0; i--) {
     var asc = str.charCodeAt(i);
-    asc = asc + 13 - ASCII_MIN;
-    console.log("ASC : "+asc);
-
-
-    var letter = asc%26 + ASCII_MIN
-    console.log("CONV : " + letter)
+    var letter = (asc + nb - ASCII_MIN)%26 + ASCII_MIN
     res += String.fromCharCode(letter);
   }
   return res;

@@ -31,7 +31,7 @@ h1 {
   position: relative;
   perspective: 1000px;
   margin: 0 auto;
-  margin-top: 40vh; /* poussé de la moitié de hauteur de viewport */
+  margin-top: 25vh; /* poussé de la moitié de hauteur de viewport */
   transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
 
